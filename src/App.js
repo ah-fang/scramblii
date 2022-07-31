@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Games from './components/Games';
+import { Outlet, Link } from "react-router-dom";
+
 
 function App() {
   return (
@@ -18,8 +21,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <main>
+        <Games />
+      </main>
     </div>
   );
 }
-
 export default App;
