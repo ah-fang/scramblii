@@ -1,8 +1,9 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { Game } from "phaser";
 // useParams ^,
 // import { getInvoice, deleteInvoice } from "../data";
 
-export default function Game() {
+export default function SingleGame() {
     let navigate = useNavigate();
     let location = useLocation();
     // let params = useParams();
@@ -14,6 +15,7 @@ export default function Game() {
                 {invoice.name}: {invoice.number}
             </p>
             <p>Due Date: {invoice.due}</p> */}
+            <canvas height='300'></canvas>
             <p>
                 <button
                     onClick={() => {
