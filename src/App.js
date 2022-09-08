@@ -1,20 +1,35 @@
 import './App.css';
-import { Outlet, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Games from './routes/games';
+import Explore from './routes/explore';
+import Header from './components/Header'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <nav className='App-nav'>
-          <Link to="/games" className='App-link'>Games</Link>
-          <><Link to="/explore"className='App-link'>Explore</Link></>         
-        </nav>
-        <Outlet />
-      </header>
-      <main className='App-main'>
-        <h1>Site Title</h1>
-      </main>
-    </div>
+    // <Header />
+    <BrowserRouter>  
+    <Routes>
+
+      <Route path='/' element={<Header />}>
+        <Route path='games'element={<Games />}>
+          {/* create conditional route to whatever game is selected */}
+          {/* <Route path=':gameId' element={<Game/>} /> */}
+        </Route>
+        <Route path='explore'element={<Explore />}>
+          {/* create routes to other areas in the world here */}          
+        </Route>
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+
   );
 }
 export default App;
